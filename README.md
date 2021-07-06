@@ -1,8 +1,9 @@
 # ReactExperimentalProject
 
-## Articles Studied
-### Node.js related
+### Articles Studied
 - [About Node.js](https://nodejs.org/en/about/)
 - [Callbacks](https://nodejs.org/en/knowledge/getting-started/control-flow/what-are-callbacks/)
-test 
-test
+
+### terminal commands
+- create react app  - npx create-react-app contact-app
+- start react app   - npm start

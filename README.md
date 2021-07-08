@@ -11,6 +11,8 @@
 ### terminal commands
 - create react app  - npx create-react-app contact-app
 - start react app   - npm start
+- install uuidv4    - npm i uuidv4
+- install react router - npm install react-router-dom
 
 ### react features used
 - Semantic UI for React

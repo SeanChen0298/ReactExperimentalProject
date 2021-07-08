@@ -1,4 +1,5 @@
-import React, {useState, use, useEffect} from "react";
+import React, {useState, useEffect} from "react";
+import { uuid } from 'uuidv4';
 import './App.css';
 import Header from "./Header";
 import AddContact from "./AddContact";
@@ -11,7 +12,14 @@ function App() {
 
   const addContactHandler = (contact) => {
     console.log(contact);
-    setContacts([...contacts, contact]);
+    setContacts([...contacts, {id: uuid(), ...contact }]);
+  };
+
+  const removeContactHandler = (id) => {
+    const newContactList = contacts.filter((contact) => {
+      return contact.id !== id;
+    })
+    setContacts(newContactList);
   };
 
   useEffect(() => {
@@ -21,13 +29,13 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
-  }, [contacts]);
+  }, [contacts]); // second param of useEffect is it's dependency.
 
   return (
     <div className="ui container">
       <Header />
       <AddContact addContactHandler={addContactHandler}/>
-      <ContactList contacts={contacts}/>
+      <ContactList contacts={contacts} getContactId={removeContactHandler} />
     </div>
   );
 }
